@@ -26,6 +26,7 @@ import java.net.URI;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
+import java.time.Duration;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,6 +45,7 @@ import java.util.TimeZone;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.propertyeditors.DurationEditor;
 import org.xml.sax.InputSource;
 
 import org.springframework.beans.propertyeditors.ByteArrayPropertyEditor;
@@ -216,6 +218,7 @@ public class PropertyEditorRegistrySupport implements PropertyEditorRegistry {
 		this.defaultEditors.put(Class.class, new ClassEditor());
 		this.defaultEditors.put(Class[].class, new ClassArrayEditor());
 		this.defaultEditors.put(Currency.class, new CurrencyEditor());
+		this.defaultEditors.put(Duration.class, new DurationEditor());
 		this.defaultEditors.put(File.class, new FileEditor());
 		this.defaultEditors.put(InputStream.class, new InputStreamEditor());
 		if (!shouldIgnoreXml) {
